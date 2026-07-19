@@ -135,7 +135,7 @@ window.Quarto = {
 
 <section id="环境准备" class="level1">
 <h1>环境准备</h1>
-<div id="1e7f769c" class="cell" data-execution_count="1">
+<div id="3d00ff9c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)  <span class="co"># 忽略次要警告，输出更干净</span></span>
@@ -159,7 +159,7 @@ window.Quarto = {
 </section>
 <section id="股票数据介绍" class="level1">
 <h1>股票数据介绍</h1>
-<div id="93e28d81" class="cell" data-execution_count="2">
+<div id="a202898d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_stock_data(symbol, start_date<span class="op">=</span><span class="va">None</span>, end_date<span class="op">=</span><span class="va">None</span>, adjust<span class="op">=</span><span class="st">"qfq"</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    下载美股日线数据，返回处理后的 DataFrame（日期为索引）</span></span>
@@ -375,7 +375,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="a2b303fb" class="cell" data-execution_count="3">
+<div id="6b773b13" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> df_aapl.tail(<span class="dv">8</span>).copy()  <span class="co"># 取最后 8 个交易日</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dates <span class="op">=</span> <span class="bu">range</span>(<span class="bu">len</span>(sample))  <span class="co"># 0,1,...,7 用作横轴位置</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -437,7 +437,7 @@ window.Quarto = {
 </section>
 <section id="日收益率计算" class="level1">
 <h1>日收益率计算</h1>
-<div id="8493e0b6" class="cell" data-execution_count="4">
+<div id="10b58b04" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 用 pandas 计算整列日收益率 ==========</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df_aapl[[<span class="st">'Close'</span>]].copy()              <span class="co"># 只保留收盘价一列</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'daily_return'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>].pct_change()  <span class="co"># 今天相对昨天的涨跌比例</span></span>
@@ -534,7 +534,7 @@ window.Quarto = {
 </section>
 <section id="可视化收益率" class="level1">
 <h1>可视化收益率</h1>
-<div id="965c744c" class="cell" data-execution_count="5">
+<div id="1712229e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 日收益率曲线 + 直方图 ==========</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'daily_return'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>].pct_change()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>rets <span class="op">=</span> df[<span class="st">"daily_return"</span>].dropna()  <span class="co"># 去掉第一天的 NaN</span></span>
@@ -589,7 +589,7 @@ Daily return standard deviation: 1.548% (larger = more volatile)</code></pre>
 </section>
 <section id="累计收益率" class="level1">
 <h1>累计收益率</h1>
-<div id="348c29d9" class="cell" data-execution_count="6">
+<div id="a972e6c2" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 累计收益率曲线 ==========</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cum_return <span class="op">=</span> (<span class="dv">1</span> <span class="op">+</span> rets).cumprod() <span class="op">-</span> <span class="dv">1</span>  <span class="co"># 每天 (1+r) 连乘，再减1得到累计涨跌</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -618,7 +618,7 @@ Daily return standard deviation: 1.548% (larger = more volatile)</code></pre>
 </section>
 <section id="小实验哪只股票波动大" class="level1">
 <h1>小实验：哪只股票波动大</h1>
-<div id="d20da3ff" class="cell" data-execution_count="7">
+<div id="9c26d70a" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 多股票波动率对比 ==========</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 定义绘图函数（收盘价+成交量） ==========</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_stock(df, symbol<span class="op">=</span><span class="va">None</span>, title<span class="op">=</span><span class="va">None</span>):</span>
@@ -657,7 +657,7 @@ Daily return standard deviation: 1.548% (larger = more volatile)</code></pre>
 <span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
 <span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c96ad1b9" class="cell" data-execution_count="8">
+<div id="c884102c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 多只股票对比（日收益率 + 波动大小柱状图） ==========</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 选择三只股票</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>tickers <span class="op">=</span> {</span>
@@ -730,7 +730,7 @@ NVIDIA (NVDA): 249 trading days</code></pre>
 Under this experiment setup (1y daily data), the most volatile stock is: Tesla</code></pre>
 </div>
 </div>
-<div id="98c5db4d" class="cell" data-execution_count="9">
+<div id="918e0407" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)  <span class="co"># 创建子图</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, series), c <span class="kw">in</span> <span class="bu">zip</span>(axes, all_rets.items(), colors):  <span class="co"># 逐只股票画直方图</span></span>
@@ -756,7 +756,7 @@ Under this experiment setup (1y daily data), the most volatile stock is: Tesla</
 </section>
 <section id="我选的三只股票qqq-spy-soxx" class="level1">
 <h1>我选的三只股票：QQQ, SPY, SOXX</h1>
-<div id="633103ae" class="cell" data-execution_count="10">
+<div id="5cc953a9" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 选择三只股票</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tickers <span class="op">=</span> {</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"QQQ"</span>: <span class="st">"QQQ"</span>,</span>
@@ -832,7 +832,7 @@ SOXX (SOXX): 249 trading days</code></pre>
 Under this experiment setup (1y daily data), the most volatile stock is: SOXX</code></pre>
 </div>
 </div>
-<div id="991da901" class="cell" data-execution_count="11">
+<div id="31b64203" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)  <span class="co"># 创建子图</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (name, series), c <span class="kw">in</span> <span class="bu">zip</span>(axes, all_rets.items(), colors):  <span class="co"># 逐只股票画直方图</span></span>

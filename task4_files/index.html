@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="环境配置" class="level1">
 <h1>环境配置</h1>
-<div id="4498651b" class="cell" data-execution_count="1">
+<div id="bc7cd081" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 环境准备 ==========</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>环境就绪 ✓</code></pre>
 </div>
 </div>
-<div id="62d4e543" class="cell" data-execution_count="2">
+<div id="fdbf7e52" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 第1步：下载数据并算双均线 ==========</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 解析 PERIOD（如 '2y'）为天数（2年约730天）</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> <span class="bu">int</span>(PERIOD[<span class="dv">0</span>]) <span class="op">*</span> <span class="dv">365</span> <span class="cf">if</span> PERIOD.endswith(<span class="st">'y'</span>) <span class="cf">else</span> <span class="dv">365</span>  <span class="co"># 简单解析</span></span>
@@ -252,7 +252,7 @@ Recent trades:</code></pre>
 </div>
 </div>
 </div>
-<div id="cc787e42" class="cell" data-execution_count="3">
+<div id="8cc9ba8e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>), sharex<span class="op">=</span><span class="va">True</span>,  <span class="co"># 创建子图</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                         gridspec_kw<span class="op">=</span>{<span class="st">'height_ratios'</span>: [<span class="fl">2.5</span>, <span class="dv">1</span>]})  <span class="co"># 子图高度比例</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -322,7 +322,7 @@ Recent trades:</code></pre>
 </tr>
 </tbody>
 </table>
-<div id="1b2d745c" class="cell" data-execution_count="4">
+<div id="657c4a7f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 算日收益率 ==========</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ret'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>].pct_change().fillna(<span class="dv">0</span>)  <span class="co"># 股票本身每天涨跌</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -375,7 +375,7 @@ Recent trades:</code></pre>
 <li>策略有没有 <strong>跑赢</strong> 买入持有？有没有 <strong>跑输</strong> 大盘？</li>
 <li>中间有没有 <strong>大坑</strong>（后面 4.6 会讲回撤）？</li>
 </ol>
-<div id="8ecb54db" class="cell" data-execution_count="5">
+<div id="c9b972e2" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 三条净值曲线对比（回测高潮图）==========</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))  <span class="co"># 创建子图</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -402,7 +402,7 @@ Recent trades:</code></pre>
 </div>
 </div>
 </div>
-<div id="f53b9871" class="cell" data-execution_count="6">
+<div id="dfcdcb59" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 近12个月局部放大 ==========</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用日期偏移量切片，兼容所有pandas版本</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>cutoff <span class="op">=</span> df.index[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> pd.DateOffset(months<span class="op">=</span><span class="dv">12</span>)</span>
@@ -431,7 +431,7 @@ Recent trades:</code></pre>
 <section id="胜率" class="level1">
 <h1>胜率</h1>
 <p>胜率 = 赢的次数 ÷（赢 + 输）（每一笔交易的成功率）</p>
-<div id="03f54c01" class="cell" data-execution_count="7">
+<div id="f2abf8cb" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 统计胜率：一轮「买入→卖出」算一局 ==========</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>wins, losses <span class="op">=</span> <span class="dv">0</span>, <span class="dv">0</span>       <span class="co"># 赢、输次数</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>entry_price <span class="op">=</span> <span class="va">None</span>        <span class="co"># 记住买入价</span></span>
@@ -563,7 +563,7 @@ Recent trades:</code></pre>
 <section id="最大回撤" class="level1">
 <h1>最大回撤</h1>
 <p>整段样本里 <strong>跌幅最深的那一次</strong>，叫 <strong>最大回撤（Max Drawdown）</strong></p>
-<div id="24e0d21c" class="cell" data-execution_count="8">
+<div id="6a98f2fe" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 最大回撤：从历史最高点最多跌了多少 ==========</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> max_drawdown(nav_series):  <span class="co"># 定义最大回撤计算函数</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""输入净值序列，返回 (最大回撤比例, 每日回撤序列)。"""</span>  <span class="co"># 字典字段</span></span>
@@ -604,7 +604,7 @@ Recent trades:</code></pre>
 </section>
 <section id="英伟达回测" class="level1">
 <h1>英伟达回测</h1>
-<div id="b423b354" class="cell" data-execution_count="9">
+<div id="1f2e9fe9" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 策略回测工具（单只 / 多只股票） ==========</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -759,7 +759,7 @@ Hold Days: 277</code></pre>
 </div>
 </div>
 <p>#5y和1y回撤对比</p>
-<div id="0b53afa8" class="cell" data-execution_count="10">
+<div id="9b79ae65" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 可视化对比：PERIOD='1y' vs '5y' ==========</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>TICKER <span class="op">=</span> <span class="st">"NVDA"</span>  <span class="co"># 分析的股票</span></span>
@@ -851,7 +851,7 @@ Backtesting NVDA for period 5y ...</code></pre>
 </div>
 </div>
 <p>#多只股票一起回测</p>
-<div id="942fb375" class="cell" data-execution_count="11">
+<div id="0989518c" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ========== 多只股票批量回测 ==========</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tickers <span class="op">=</span> [<span class="st">"AMD"</span>, <span class="st">"NVDA"</span>, <span class="st">"GOOGL"</span>, <span class="st">"TSLA"</span>, <span class="st">"QQQ"</span>, <span class="st">"SPY"</span>]</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> {}</span>
